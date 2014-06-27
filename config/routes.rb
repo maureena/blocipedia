@@ -1,6 +1,10 @@
 Blocipedia::Application.routes.draw do
-  get "welcome/index"
-  get "welcome/about"
+
+  resources :pages do
+    resources :references
+  end
+
+  get 'about' => "welcome/about"
 
   root to: 'welcome#index'
 
