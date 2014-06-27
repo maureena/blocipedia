@@ -14,8 +14,7 @@
 ActiveRecord::Schema.define(version: 20140627141250) do
 
   create_table "connections", force: true do |t|
-    t.integer "owner_id"
-    t.integer "collaborator_id"
+    t.integer "editor_id"
     t.integer "page_id"
   end
 
