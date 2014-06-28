@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140628203526) do
+ActiveRecord::Schema.define(version: 20140628211532) do
 
   create_table "connections", force: true do |t|
     t.integer "editor_id"
@@ -23,7 +23,7 @@ ActiveRecord::Schema.define(version: 20140628203526) do
     t.text     "body"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.boolean  "public"
+    t.boolean  "public",     default: true
   end
 
   create_table "references", force: true do |t|
