@@ -13,6 +13,7 @@ end
 
 group :development do
   gem 'sqlite3'
+  gem 'faker'
 end
 
 group :development, :test do
