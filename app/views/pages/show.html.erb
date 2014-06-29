@@ -1,2 +1,8 @@
-<h1>Pages#show</h1>
-<p>Find me in app/views/pages/show.html.erb</p>
+<h1><%= @page.title %></h1>
+<p><%= @page.body %></p>
+<%= link_to "Edit Page", edit_page_path(@page) %>
+<div>
+</div>
+<%= link_to "Add new Reference", new_page_reference_path(@page, @reference) %>
+<h4>References</h4>
+<%= render partial: "references/reference", collection: @page.references %>

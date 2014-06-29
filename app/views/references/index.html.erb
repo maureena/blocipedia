@@ -1,2 +1,4 @@
-<h1>References#index</h1>
-<p>Find me in app/views/references/index.html.erb</p>
+<h1>All References</h1>
+<% @references.each do |reference| %>
+  <p><%= reference.body %></p>
+<% end %>
