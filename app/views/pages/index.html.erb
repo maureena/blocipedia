@@ -1,7 +1,14 @@
-<%= link_to "Create new Wiki page", new_page_path(@page) %>
-
-<h1>All Pages</h1>
-
-<% @pages.each do |page| %>
-  <p><%= link_to page.title, page %></p>
-<% end %>
+<br>
+<div class="row">
+  <div class="col-md-8">
+    <%= link_to "Create wiki page", new_page_path(@page), class: 'btn btn-success' %>
+  </div>
+</div>
+<div class="row">
+  <div class="col-md-8">
+    <h1>All Pages</h1>
+      <% @pages.each do |page| %>
+      <h4><%= link_to page.title, page %></h4>
+    <% end %>
+  </div>
+</div>
