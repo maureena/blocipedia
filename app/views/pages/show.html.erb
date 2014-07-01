@@ -1,9 +1,9 @@
 <div class="row">
   <div class="col-md-12">
     <div class="page-header"> 
-      <h1><%= @page.title %><small> <%= link_to "Edit", edit_page_path(@page) %></small></h1>
+      <h1><%= markdown @page.title %><small> <%= link_to "Edit", edit_page_path(@page) %></small></h1>
     </div>
-    <p><%= @page.body %></p>
+    <p><%= markdown @page.body %></p>
     <div><%= link_to "Add new Reference", new_page_reference_path(@page, @reference) %></div>
     <div>
       <h4>References</h4>

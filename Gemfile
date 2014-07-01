@@ -62,3 +62,5 @@ gem 'debugger', group: [:development, :test]
 gem 'devise'
 
 gem 'figaro'
+
+gem 'redcarpet'
