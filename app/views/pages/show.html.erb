@@ -1,5 +1,5 @@
 <div class="row">
-  <div class="col-md-12">
+  <div class="col-md-8">
     <div class="page-header"> 
       <h1><%= markdown @page.title %><small> <%= link_to "Edit", edit_page_path(@page) %></small></h1>
     </div>
@@ -10,4 +10,8 @@
       <%= render partial: "references/reference", collection: @page.references %>
     </div>
   </div>
+  <div class="col-md-4">
+      <%= render partial: 'invites/form', locals: { page: @page, invite: @invite } %>
+  </div>
+
 </div>

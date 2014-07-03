@@ -1,0 +1,8 @@
+<h5>Invite collaborators to contribute to this wiki page</h5>
+
+<%= form_for [page, invite] do |f| %>
+  <%= f.hidden_field :page_id, value: page.id %>
+  <%= f.label :email %>
+  <%= f.email_field :email %>
+  <%= f.submit 'Send' %>
+<% end %>

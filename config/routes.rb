@@ -1,8 +1,10 @@
 Blocipedia::Application.routes.draw do
 
-  devise_for :users
+  devise_for  :users,
+              controllers: { registrations: "my_devise/registrations" }
   resources :pages do
     resources :references
+    resources :invites
   end
 
   get 'about' => "welcome#about"
