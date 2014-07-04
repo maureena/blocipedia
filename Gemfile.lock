@@ -1,3 +1,12 @@
+GIT
+  remote: https://github.com/stripe/stripe-ruby
+  revision: bb9388384f8bade9cf257e5907679e7afaab85a6
+  specs:
+    stripe (1.14.0)
+      json (~> 1.8.1)
+      mime-types (~> 1.25)
+      rest-client (~> 1.4)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -101,6 +110,8 @@ GEM
     rdoc (4.1.1)
       json (~> 1.4)
     redcarpet (3.1.2)
+    rest-client (1.6.7)
+      mime-types (>= 1.16)
     rspec-core (3.0.0)
       rspec-support (~> 3.0.0)
     rspec-expectations (3.0.0)
@@ -171,5 +182,6 @@ DEPENDENCIES
   sass-rails (~> 4.0.2)
   sdoc
   sqlite3
+  stripe!
   turbolinks
   uglifier (>= 1.3.0)
