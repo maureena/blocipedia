@@ -1,2 +1,16 @@
-<h1>Pages#edit</h1>
-<p>Find me in app/views/pages/edit.html.erb</p>
+<h1>Edit Page</h1>
+<div>
+  <%= form_for @page do |f| %>
+    <div>
+      <%= f.label :title %>
+     <%= f.text_field :title %>
+    </div>
+    <div>
+      <%= f.label :body %>
+      <%= f.text_area :body %>
+    </div>
+    <div>
+      <%= f.submit "Save" %>
+    </div>
+  <% end %>
+</div>

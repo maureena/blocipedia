@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140628211532) do
+ActiveRecord::Schema.define(version: 20140628230006) do
 
   create_table "connections", force: true do |t|
     t.integer "editor_id"
@@ -31,9 +31,11 @@ ActiveRecord::Schema.define(version: 20140628211532) do
     t.integer  "page_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "user_id"
   end
 
   add_index "references", ["page_id"], name: "index_references_on_page_id"
+  add_index "references", ["user_id"], name: "index_references_on_user_id"
 
   create_table "users", force: true do |t|
     t.string   "name"
