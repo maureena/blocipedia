@@ -4,16 +4,16 @@ class InviteMailer < ActionMailer::Base
   def existing_user_invite(invite, sign_in_url)
     @url = root_url + sign_in_url
     @sender = invite.sender
-    @page = page
-    @page_title = page.title
+    @page = invite.page
+    @page_title = @page.title
     mail(to: invite.email, subject: "You've been invited to contribute to the \"#{@page_title}\" wiki page on Blocipedia." )
   end
 
   def new_user_invite(invite, registration_url)
     @url = root_url + registration_url
     @sender = invite.sender
-    @page = page
-    @page_title = page.title
+    @page = invite.page
+    @page_title = @page.title
     mail(to: invite.email, subject: "You\'ve been invited to contribute to the \"#{@wiki_page}\" wiki page on Blocipedia." )
   end
 

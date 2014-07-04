@@ -7,6 +7,8 @@ Blocipedia::Application.routes.draw do
     resources :invites
   end
 
+  resources :charges
+
   get 'about' => "welcome#about"
   root to: 'welcome#index'
 

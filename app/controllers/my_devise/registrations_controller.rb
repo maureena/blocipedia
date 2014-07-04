@@ -1,18 +1,18 @@
 class MyDevise::RegistrationsController < Devise::RegistrationsController
 
   def new
-    super
+    debugger
     @token = params[:invite_token]
+    super
   end
 
   def create
-    @newUser = build_resource(user_params)
-    @newUser.save
     @token = params[:invite_token]
     if @token != nil
+      @newUser = build_resource(user_params)
+      @newUser.save
       pg = Invite.find_by_token(@token).page_id
-      Connection.create(page_id: pg.id, editor_id: @newUser.id)
-      @newUser.sign_in
+      Connection.create(page_id: pg, editor_id: @newUser.id)
     else
       super
     end

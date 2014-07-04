@@ -64,3 +64,5 @@ gem 'devise'
 gem 'figaro'
 
 gem 'redcarpet'
+
+gem 'stripe', :git => 'https://github.com/stripe/stripe-ruby'
