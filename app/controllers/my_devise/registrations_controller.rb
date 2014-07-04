@@ -12,9 +12,11 @@ class MyDevise::RegistrationsController < Devise::RegistrationsController
     if @token != nil
       pg = Invite.find_by_token(@token).page_id
       Connection.create(page_id: pg.id, editor_id: @newUser.id)
+      @newUser.sign_in
     else
       super
     end
+
   end
 
   private

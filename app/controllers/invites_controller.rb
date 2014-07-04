@@ -11,13 +11,14 @@ class InvitesController < ApplicationController
         @invite.recipient.pages.push(@invite.page)
         flash[:notice] = "Invite was sent."
       elsif
-        InviteMailer.new_user_invite(@invite, new_user_registration_path(invite_token: @invite.token)).deliver
+        InviteMailer.new_user_invite(@invite, edit_user_password_path(invite_token: @invite.token)).deliver
         flash[:notice] = "Invite was sent."
       else
         flash[:error] = "There was a problem sending your invitation. Please try again."
       end
       redirect_to @invite.page
     end
+  
   end
 
   private
