@@ -11,11 +11,21 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140628230006) do
+ActiveRecord::Schema.define(version: 20140701061646) do
 
   create_table "connections", force: true do |t|
     t.integer "editor_id"
     t.integer "page_id"
+  end
+
+  create_table "invites", force: true do |t|
+    t.string   "email"
+    t.integer  "page_id"
+    t.integer  "sender_id"
+    t.integer  "recipient_id"
+    t.string   "token"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "pages", force: true do |t|
