@@ -1,16 +1,12 @@
 <h1>Edit Page</h1>
-<div>
-  <%= form_for @page do |f| %>
-    <div>
-      <%= f.label :title %>
-     <%= f.text_field :title %>
-    </div>
-    <div>
-      <%= f.label :body %>
-      <%= f.text_area :body %>
-    </div>
-    <div>
-      <%= f.submit "Save" %>
-    </div>
-  <% end %>
+
+<div class="row">
+  <div class="col-md-12">
+    <p>Guidelines for pages goes here</p>
+  </div>
+</div>
+<div class="row">
+  <div class="col-md-12">
+    <%= render partial: 'form', locals: { page: @page } %>
+  </div>
 </div>

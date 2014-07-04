@@ -5,8 +5,7 @@ Blocipedia::Application.routes.draw do
     resources :references
   end
 
-  get 'about' => "welcome/about"
-
+  get 'about' => "welcome#about"
   root to: 'welcome#index'
 
   # Example of regular route:
