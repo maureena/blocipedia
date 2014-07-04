@@ -13,6 +13,7 @@ end
 
 group :development do
   gem 'sqlite3'
+  gem 'faker'
 end
 
 group :development, :test do
@@ -55,4 +56,8 @@ end
 # gem 'capistrano', group: :development
 
 # Use debugger
-# gem 'debugger', group: [:development, :test]
+gem 'debugger', group: [:development, :test]
+
+gem 'devise'
+
+gem 'figaro'

@@ -1,5 +1,6 @@
 Blocipedia::Application.routes.draw do
 
+  devise_for :users
   resources :pages do
     resources :references
   end
