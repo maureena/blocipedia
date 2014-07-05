@@ -1,4 +1,6 @@
 class PagesController < ApplicationController
+  before_filter :authenticate_user!
+  
   def index
     @pages = Page.all
   end
@@ -6,6 +8,8 @@ class PagesController < ApplicationController
   def show
     @page = Page.find(params[:id])
     @invite = Invite.new
+    @references = @page.references
+    @reference = Reference.new
   end
 
   def new
@@ -25,6 +29,7 @@ class PagesController < ApplicationController
 
   def edit
     @page = Page.find(params[:id])
+    @reference = Reference.new
   end
 
   def update

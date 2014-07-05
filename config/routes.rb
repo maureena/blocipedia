@@ -11,7 +11,7 @@ Blocipedia::Application.routes.draw do
 
   get 'about' => "welcome#about"
   root to: 'welcome#index'
-
+  get "pages/insert_reference" => 'pages#insert_reference', :as => :insert_reference
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 
