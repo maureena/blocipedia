@@ -9,9 +9,4 @@
   <div class="col-md-12">
     <%= render partial: 'form', locals: { page: @page } %>
   </div>
-  <div class="col-md-12">
-  <%= link_to 'Insert reference', insert_reference_path, {:remote => true, 'data-toggle' =>  'modal', 'data-target' => '#myModal'} %>
-  </div>
-  <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-      <%= render partial: 'references/insert_reference', locals: { page: @page, reference: @reference } %></div>
 </div>

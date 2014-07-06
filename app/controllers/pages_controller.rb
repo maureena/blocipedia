@@ -1,6 +1,6 @@
 class PagesController < ApplicationController
   before_filter :authenticate_user!
-  
+
   def index
     @pages = Page.all
   end
@@ -8,8 +8,6 @@ class PagesController < ApplicationController
   def show
     @page = Page.find(params[:id])
     @invite = Invite.new
-    @references = @page.references
-    @reference = Reference.new
   end
 
   def new
@@ -29,7 +27,6 @@ class PagesController < ApplicationController
 
   def edit
     @page = Page.find(params[:id])
-    @reference = Reference.new
   end
 
   def update
@@ -43,10 +40,23 @@ class PagesController < ApplicationController
     end
   end
 
-private
+  def destroy
+    @page = Page.find(params[:id])
+    title = @page.title
+
+    if @page.destroy
+      flash[:notice] = "\"#{title}\" was deleted successfully."
+      redirect_to pages_path
+    else
+      flash[:error] = "There was an error deleting the page."
+      render :show
+    end
+  end
+
+  private
   
-def page_params
-  params.require(:page).permit(:title, :body)
-end
+  def page_params
+    params.require(:page).permit(:title, :body, :public, references_attributes: [:id, :body, :_destroy])
+  end
 
 end
