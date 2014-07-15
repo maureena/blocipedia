@@ -1,7 +1,6 @@
 class MyDevise::RegistrationsController < Devise::RegistrationsController
 
   def new
-    debugger
     @token = params[:invite_token]
     super
   end

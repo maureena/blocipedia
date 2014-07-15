@@ -2,12 +2,14 @@ Blocipedia::Application.routes.draw do
 
   devise_for  :users,
               controllers: { registrations: "my_devise/registrations" }
+  resources :users, only: [:show, :update]
   resources :pages do
     resources :references
     resources :invites
   end
 
-  resources :charges
+  resources :charges, only: [:new, :create]
+  post 'stripehook' => 'subscriptions#hook'
 
   get 'about' => "welcome#about"
   root to: 'welcome#index'
