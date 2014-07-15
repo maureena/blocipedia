@@ -1,7 +1,5 @@
 class MyDevise::RegistrationsController < Devise::RegistrationsController
-  after_filter :create do
-    assign_editor
-  end
+  after_filter :assign_editor, :only => :create
 
   def new
     @token = params[:invite_token]
@@ -15,9 +13,10 @@ class MyDevise::RegistrationsController < Devise::RegistrationsController
   def assign_editor
     @token = params[:invite_token]
     if @token != nil
+      email = Invite.find_by_token(@token).email
+      user = User.where(email: "#{email}")
       pg = Invite.find_by_token(@token).page_id
-      debugger
-      Connection.create(page_id: pg, editor_id: current_user.id)
+      Connection.create(page_id: pg, editor_id: user.first.id)
       # redirect_to @invite.page
     else
       flash[:error] = "This invitation has already been used or is expired."
