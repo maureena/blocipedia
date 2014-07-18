@@ -1,4 +1,6 @@
 class ReferencesController < ApplicationController
+  before_filter :authenticate_user!
+
   def index
     @references = Reference.all
   end
@@ -25,6 +27,8 @@ class ReferencesController < ApplicationController
   end
 
   def edit
+    @page = Page.find(params[:id])
+    @reference = Reference.find(params[:id])
   end
 
 private
