@@ -1,21 +1,21 @@
 class PagePolicy < ApplicationPolicy
 
-  class Scope < Scope
-    attr_reader :user, :scope
+  # class Scope
+  #   attr_reader :user, :model
 
-    def initialize(user, scope)
-      @user = user
-      @scope = scope
-    end
+  #   def initialize(user, model)
+  #     @user = user
+  #     @model = model
+  #   end
 
-    def resolve
-      if user.paid?
-        scope.all
-      else
-        scope.where(:public => true)
-      end
-    end
-  end
+  #   def resolve
+  #     if ( user.role?('paid') )
+  #       @model
+  #     else
+  #       scope.where(:public => true)
+  #     end
+  #   end
+  # end
   
   def index?
     true
