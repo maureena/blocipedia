@@ -1,5 +1,5 @@
 class PagesController < ApplicationController
-
+  before_filter :authenticate_user!
 
   def index
     @pages = policy_scope(Page)
@@ -51,14 +51,27 @@ class PagesController < ApplicationController
     end
   end
 
-private
-  
-def page_params
-  params.require(:page).permit(:title, :body, :public)
-end
+  def destroy
+    @page = Page.find(params[:id])
+    title = @page.title
 
-def create_connection
-  Connection.create(editor_id: current_user.id, page_id: @page.id)
-end
+    if @page.destroy
+      flash[:notice] = "\"#{title}\" was deleted successfully."
+      redirect_to pages_path
+    else
+      flash[:error] = "There was an error deleting the page."
+      render :show
+    end
+  end
+
+  private
+  
+  def create_connection
+    Connection.create(editor_id: current_user.id, page_id: @page.id)
+  end
+
+  def page_params
+    params.require(:page).permit(:title, :body, :public, references_attributes: [:id, :body, :_destroy])
+  end
 
 end

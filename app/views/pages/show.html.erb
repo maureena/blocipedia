@@ -1,12 +1,17 @@
 <div class="row">
   <div class="col-md-8">
+    <ul class="nav nav-pills">
+      <li><%= link_to "Back to pages", pages_path %></li>
+    </ul>
     <div class="page-header"> 
       <h1><%= markdown @page.title %> <% if policy(@page).edit? %><small><%= link_to "Edit", edit_page_path(@page) %></small><% end %></h1>
     </div>
     <p><%= markdown @page.body %></p>
     <div>
       <h4>References</h4>
-      <%= render partial: "references/reference", collection: @page.references %>
+      <ol>
+        <%= render partial: "references/reference", collection: @page.references %>
+      </ol>
     </div>
   </div>
   <% if policy(@invite).create? %>
