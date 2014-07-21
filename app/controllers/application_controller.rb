@@ -5,7 +5,7 @@ class ApplicationController < ActionController::Base
   protect_from_forgery # with: :exception
   before_action :configure_permitted_parameters, if: :devise_controller?
 
-  rescue_from Pundit::NotAuthorizedError do |exception|
+  rescue_from 'Pundit::NotAuthorizedError' do |exception|
     redirect_to root_url, alert: "You must be logged in or a paid subsrciber to perform this action."
   end
 
