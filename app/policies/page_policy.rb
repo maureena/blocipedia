@@ -10,7 +10,7 @@ class PagePolicy < ApplicationPolicy
 
      def resolve
        if ( user.role?('paid') )
-         scope
+         scope.all
        else
          scope.where(public: true)
        end
@@ -22,9 +22,7 @@ class PagePolicy < ApplicationPolicy
   end
 
   def show?
-    return true if ( user.role?('paid') && @page.editors.include?(user))
-    return true if record.public? || user.present? 
-    false
+    ( user.role?('paid') && record.editors.include?(user) ) || ( record.public? )
   end
   
 end
