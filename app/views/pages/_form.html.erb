@@ -12,7 +12,7 @@
     <div class="form-group">
       <%= f.label :title, class: 'col-md-2' %>
       <div class="col-md-10">
-        <%= f.text_field :title, class: 'form-control', placeholder: "Enter page title" %>
+        <%= f.text_field :title, class: 'form-control', placeholder: "Enter page title" %><br />
       </div>
     </div>
     <div class="form-group">
@@ -21,9 +21,17 @@
         <%= f.text_area :body, rows: 8, class: 'form-control', placeholder: "Enter page body" %>
       </div>
     </div>
+
+  <div class="form-group">
+    <div class="col-md-8 col-md-offset-2">
+      <%= f.label "Page is private" %>
+      <%= f.check_box :public, {}, false, true %><br /><br />
+    </div>
+  </div>
+
     <div class="col-md-8 col-md-offset-2">
       <%= f.fields_for :references do |builder| %>
-        <%= render 'reference_fields', f: builder %>
+        <%= render 'reference_fields', f: builder %><br />
       <% end %>
     </div>
 
@@ -38,4 +46,5 @@
         <%= f.submit "Save", class: 'btn btn-success' %>
       </div>
     </div>
+
 <% end %>

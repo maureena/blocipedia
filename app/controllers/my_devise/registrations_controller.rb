@@ -13,9 +13,10 @@ class MyDevise::RegistrationsController < Devise::RegistrationsController
   def assign_editor
     @token = params[:invite_token]
     if @token != nil
-      email = Invite.find_by_token(@token).email
+      invite = Invite.find_by_token(@token)
+      email = invite.email
       user = User.where(email: "#{email}")
-      pg = Invite.find_by_token(@token).page_id
+      pg = invite.page_id
       Connection.create(page_id: pg, editor_id: user.first.id)
       # redirect_to @invite.page
     else

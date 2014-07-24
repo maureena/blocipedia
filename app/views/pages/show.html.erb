@@ -4,7 +4,7 @@
       <li><%= link_to "Back to pages", pages_path %></li>
     </ul>
     <div class="page-header"> 
-      <h1><%= markdown @page.title %><small> <%= link_to "Edit", edit_page_path(@page) %></small></h1>
+      <h1><%= markdown @page.title %> <% if policy(@page).edit? %><small><%= link_to "Edit", edit_page_path(@page) %></small><% end %></h1>
     </div>
     <p><%= markdown @page.body %></p>
     <div>
@@ -14,8 +14,10 @@
       </ol>
     </div>
   </div>
-  <div class="col-md-4">
-      <%= render partial: 'invites/form', locals: { page: @page, invite: @invite } %>
-  </div>
+  <% if policy(@invite).create? %>
+    <div class="col-md-4">
+        <%= render partial: 'invites/form', locals: { page: @page, invite: @invite } %>
+    </div>
+  <% end %>
 
 </div>

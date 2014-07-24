@@ -1,31 +1,39 @@
 require 'rails_helper'
+require 'ruby_debug'
 
-RSpec.describe PagesController, :type => :controller do
+describe PagesController do
 
+  before(:each) do
+    user = FactoryGirl.create(:user)
+    sign_in user
+  end
+
+  
   describe "GET 'index'" do
     it "returns http success" do
-      get 'index'
       expect(response).to be_success
     end
   end
 
   describe "GET 'show'" do
     it "returns http success" do
-      get 'show'
+      page = FactoryGirl.create(:page)
+      get :show, id: page
       expect(response).to be_success
     end
   end
 
   describe "GET 'new'" do
     it "returns http success" do
-      get 'new'
+      get :new
       expect(response).to be_success
     end
   end
 
   describe "GET 'edit'" do
     it "returns http success" do
-      get 'edit'
+      page = FactoryGirl.create(:page)
+      get :edit, id: page
       expect(response).to be_success
     end
   end

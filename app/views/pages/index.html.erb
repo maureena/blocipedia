@@ -1,7 +1,9 @@
 <br>
 <div class="row">
   <div class="col-md-8">
-    <%= link_to "Create wiki page", new_page_path(@page), class: 'btn btn-success' %>
+    <% if policy(Page.new).create? %>
+      <%= link_to "Create wiki page", new_page_path(@page), class: 'btn btn-success' %>
+    <% end %>
   </div>
 </div>
 <div class="row">

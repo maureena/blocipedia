@@ -18,6 +18,10 @@ end
 
 group :development, :test do
   gem 'rspec-rails'
+  gem 'factory_girl_rails', '~> 4.0'
+  gem 'debugger'
+  gem 'capybara'
+  gem 'database_cleaner'
 end
 
 gem 'bootstrap-sass', '~> 3.1.1'
@@ -56,13 +60,16 @@ end
 # Use Capistrano for deployment
 # gem 'capistrano', group: :development
 
-# Use debugger
-gem 'debugger', group: [:development, :test]
-
 gem 'devise'
+
+gem 'pundit'
 
 gem 'figaro'
 
 gem 'redcarpet'
 
 gem 'stripe', :git => 'https://github.com/stripe/stripe-ruby'
+
+gem 'launchy', '~> 2.4.2'
+
+gem 'ultrahook', '~> 0.1.2'

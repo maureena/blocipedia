@@ -46,6 +46,9 @@
         </div>
       <% end  %>
 
+      <h3>Upgrade my account</h3>
+      <p><%= link_to "Go Pro", new_charge_path, class: 'btn btn-primary' %></p>
+
       <h3>Cancel my account</h3>
       <div class="form-group">
         <p><%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete, class: 'btn btn-danger' %></p>

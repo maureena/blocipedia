@@ -11,10 +11,14 @@
       <ul class="nav nav-tabs">
         <li><%= link_to "Blocipedia", root_path %></li>
         <li><%= link_to "About", about_path %></li>
+        <li><%= link_to "Pages", pages_path %></li>
+        <% if current_user %>
+          <li><%= link_to "My wikis", user_path(current_user.id) %></li>
+        <% end %>
 
         <div class="pull-right user-info">
           <% if current_user %>
-            Hello <%= (current_user.name || current_user.email) %>.
+            Hello <%= link_to (current_user.name || current_user.email), edit_user_registration_path %>.
             <%= link_to "Sign out", destroy_user_session_path, method: :delete %>
           <% else %>
             <%= link_to "Sign In", new_user_session_path %> or

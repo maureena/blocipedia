@@ -1,0 +1,6 @@
+<h1><%= @user.name %></h1>
+
+<h2>My wiki pages</h2>
+<% @pages.each do |page| %>
+  <h4><%= link_to(page.title, page) %></h4>
+<% end %>

@@ -9,4 +9,9 @@ class User < ActiveRecord::Base
   has_many :pages, through: :connections
   has_many :invitations, class_name: "Invite", foreign_key: 'recipient_id'
   has_many :sent_invites, class_name: "Invite", foreign_key: 'sender_id'
+
+  def role?(base_role)
+    role == base_role.to_s
+  end
+  
 end
