@@ -6,7 +6,7 @@ class ChargesController < ApplicationController
       description: "Blocipedia Membership - #{current_user.name}",
       amount: 899 
    }
-   authorize @charge, :new?
+   # authorize @charge, :new?
   end
 
   def create
